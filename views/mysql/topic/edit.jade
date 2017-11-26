@@ -5,10 +5,9 @@ block content
     p
       input(type='text' name='title' placeholder='title' value=topic.title)
     p
-      textarea(name='description' rows='10' placeholder='description')
-        =topic.description
+      textarea(name='description' rows='10' placeholder='description')= topic.description
     p
-      input(type='text' name='author' placeholder='author' value=topic.author)
+      input(type='text' name='author' placeholder='author' readonly value=topic.author)
     p
       input(type='submit')
   ul

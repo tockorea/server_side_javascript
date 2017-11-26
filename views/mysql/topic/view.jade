@@ -8,11 +8,13 @@ block content
     else
       h2 Welcom
       | This is server side javascript tutorial.
-  ul
-    li
-      a(href='/topic/add') add
-    if topic
+  if user
+    ul
       li
-        a(href='/topic/'+topic.id+'/edit') edit
-      li
-        a(href='/topic/'+topic.id+'/delete') delete
+        a(href='/topic/add') add
+      if topic
+        if user.authId === topic.author
+          li
+            a(href='/topic/'+topic.id+'/edit') edit
+          li
+            a(href='/topic/'+topic.id+'/delete') delete

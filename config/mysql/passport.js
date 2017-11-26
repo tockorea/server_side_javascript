@@ -69,6 +69,7 @@ module.exports = function(app) {
         } else {
           var newuser = {
             'authId': authId,
+            'username': profile.id,
             'displayName': profile.displayName,
             'email': profile.emails[0].value
           };
