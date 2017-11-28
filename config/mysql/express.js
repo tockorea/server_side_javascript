@@ -8,6 +8,7 @@ module.exports = function() {
   app.locals.pretty = true;
   app.set('views', './views/mysql');
   app.set('view engine', 'jade');
+  app.use(express.static('public'));
   app.use(bodyParser.urlencoded({
     extended: false
   }));

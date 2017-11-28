@@ -1,8 +1,8 @@
 extends ../layout
 block content
   article
-    h1= 'Delete? '+topic.title
-    form(action='/topic/'+topic.id+'/delete' method='post')
-      p
-        input(type='submit' value='YES')
-    a(href='/topic/'+topic.id) NO
+    h1= topic.title + '을(를) 삭제하시겠습니까?'
+    .btn-group
+      form(action='/topic/'+topic.id+'/delete' method='post')
+        input.btn.btn-danger(type='submit' value='YES')
+        a.btn.btn-primary(href='/topic/'+topic.id) NO

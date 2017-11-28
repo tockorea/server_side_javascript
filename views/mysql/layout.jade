@@ -2,21 +2,39 @@ doctype html
 html
   head
     meta(charset='utf-8')
+    meta(name="viewport", content="width=device-width, initial-scale=1.0")
+    title Home page
+    link(href="http://localhost:3003/bootstrap/css/bootstrap.min.css", rel="stylesheet", media="screen")
+    link(href="http://localhost:3003/bootstrap/css/bootstrap-responsive.css", rel="stylesheet")
   body
-    ul#account
-      if user
-        li
-          a(href='/auth/logout') Logout,
-          =user.displayName
-      else
-        li
-          a(href='/auth/register') Register
-        li
-          a(href='/auth/login') Login
-    h1
-      a(href='/topic') Server Side JavaScript
-    ul
-      each topic in topics
-        li
-          a(href='/topic/'+topic.id)= topic.title
-    block content
+    .navbar.navbar-inverse.navbar-fixed-top
+      .navbar-inner
+        .container
+          a.btn.btn-navbar(data-toggle="collapse", data-target=".nav-collapse")
+            span.icon-bar
+            span.icon-bar
+            span.icon-bar
+          .nav-collapse.collapse
+            ul.nav.pull-right
+              if user
+                li
+                  a(href='/auth/logout')= user.displayName
+              else
+                li
+                  a(href='/auth/register') Register
+                li
+                  a(href='/auth/login') Login
+    .container
+      header.hero-unit.text-center
+        h1
+          a(href='/topic') Server Side JavaScript
+      .row
+        nav.span3
+          ol.nav.nav-tabs.nav-stacked
+            each topic in topics
+              li
+                a(href='/topic/'+topic.id)= topic.title
+        .span9
+          block content
+    script(src="http://localhost:3003/jquery-3.2.1.js")
+    script(src="http://localhost:3003/bootstrap/js/bootstrap.min.js")

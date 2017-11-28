@@ -9,12 +9,9 @@ block content
       h2 Welcom
       | This is server side javascript tutorial.
   if user
-    ul
-      li
-        a(href='/topic/add') add
-      if topic
-        if user.authId === topic.author
-          li
-            a(href='/topic/'+topic.id+'/edit') edit
-          li
-            a(href='/topic/'+topic.id+'/delete') delete
+    .btn-group
+       a.btn.btn-primary(href='/topic/add') 추가
+       if topic
+         if user.authId === topic.author
+           a.btn.btn-success(href='/topic/'+topic.id+'/edit') 수정
+           a.btn.btn-warning(href='/topic/'+topic.id+'/delete') 삭제
